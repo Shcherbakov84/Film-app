@@ -1,0 +1,21 @@
+.film-card {
+  max-width: 300px;
+  margin-bottom: 50px; 
+}
+
+[md-card-image] {
+  max-height: 500px;
+}
+
+md-card-content span {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+md-icon {
+  position: relative;
+  top: 3px;
+  left: 5px;
+  font-size: 18px;
+  color: #777;
+}

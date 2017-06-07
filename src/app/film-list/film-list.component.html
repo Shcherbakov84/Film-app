@@ -1,0 +1,39 @@
+<div class="app-content">
+	<film-search (searchEvent)="buildGalleryBySearch($event)"></film-search>
+
+	<md-select placeholder="Type of view" 
+		[(ngModel)]="selectedView" 
+		name="cardView">
+		<md-option *ngFor="let cardView of cardViews" 
+			[value]="cardView.value">
+			{{ cardView.viewValue }}
+		</md-option>
+	</md-select>
+	
+	<div [ngSwitch]="selectedView">
+		<md-card *ngIf="isFilmListEmpty()">Извините, фильмы не найдены..</md-card>
+		
+		<md-grid-list *ngSwitchCase="'view1'" 
+			cols="3" 
+			rowHeight="850px">
+			<md-grid-tile  *ngFor="let film of filmList">
+				<film-card [filmId]="film.imdbID"></film-card>
+			</md-grid-tile>
+		</md-grid-list>
+
+		<md-grid-list *ngSwitchCase="'view2'" 
+			cols="2" 
+			rowHeight="350px">
+			<md-grid-tile *ngFor="let film of filmList">
+				<film-tile [filmId]="film.imdbID"></film-tile>
+			</md-grid-tile>
+		</md-grid-list>
+	</div>
+
+	<button class="next-btn" md-fab>
+		<md-icon class="next-btn__icon" 
+			(click)="addFilms()">skip_next
+		</md-icon>
+	</button>
+</div>
+

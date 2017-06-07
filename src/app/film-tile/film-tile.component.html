@@ -1,0 +1,32 @@
+<div class="film-tile">
+	<div class="film-tile__img">
+		<img alt={{filmItem.Title}} 
+			src="{{filmItem.Poster}}">
+	</div>
+	<div class="film-tile__wrap">
+		<div class="film-tile__info">
+			<div class="film-tile__title wrapper">
+				{{filmItem.Title}}
+			</div>
+			<div class="wrapper">
+				<span>Рейтинг IMDb:</span>
+				{{filmItem.imdbRating}}
+				<md-icon *ngIf="filmItem.imdbRating >= 8">
+					thumb_up
+				</md-icon>
+			</div>
+			<div class="wrapper">
+				<span>Релиз:</span>
+				{{filmItem.Released}}
+			</div>
+			<div class="wrapper">
+				<span>Жанр:</span>
+				{{filmItem.Genre}}
+			</div>
+			<div class="film-tile__plot wrapper">
+				{{filmItem.Plot}}
+			</div>
+		</div>	
+		<button md-button>Подробнее</button>
+	</div>
+</div>

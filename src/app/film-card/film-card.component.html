@@ -1,0 +1,27 @@
+<md-card class="film-card" 
+	*ngIf="filmItem">
+	<img md-card-image 
+		src="{{filmItem.Poster}}">
+	<md-card-content>
+		<md-card-title>
+			{{filmItem.Title}}
+		</md-card-title>
+		<div>
+			<span>Рейтинг IMDb:</span>
+			{{filmItem.imdbRating}}
+			<md-icon *ngIf="filmItem.imdbRating >= 8">thumb_up</md-icon>
+		</div>
+		<div>
+			<span>Релиз:</span> 
+			{{filmItem.Released}}
+		</div>
+		<div>
+			<span>Жанр:</span> 
+			{{filmItem.Genre}}
+		</div>
+		<div>{{filmItem.Plot}}</div>
+	</md-card-content>
+	<md-card-actions>
+		<button md-button>Подробнее</button>
+	</md-card-actions>
+</md-card>
